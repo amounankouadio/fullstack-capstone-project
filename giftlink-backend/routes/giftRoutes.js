@@ -1,5 +1,10 @@
 router.get('/', async (req, res) => {
     try {
+        const db = await connectToDatabase();
+    const collection = db.collection("gifts");
+    const gifts = await collection.find({}).toArray();
+    res.json(gifts);
+
         // Task 1: Connect to MongoDB and store connection to db constant
         // const db = {{insert code here}}
 
