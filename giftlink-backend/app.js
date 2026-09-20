@@ -7,6 +7,7 @@ const pinoLogger = require('./logger');
 const connectToDatabase = require('./models/db');
 const {loadData} = require("./util/import-mongo/index");
 const searchRoutes = require('./routes/searchRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 
 const app = express();
@@ -33,6 +34,8 @@ const giftRoutes = require('./routes/giftRoutes');
 //{{insert code here}}
 app.use('/api/gifts', giftRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/auth', authRoutes);
+
 
 
 const pinoHttp = require('pino-http');
